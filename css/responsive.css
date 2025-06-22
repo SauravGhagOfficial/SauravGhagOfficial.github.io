@@ -1,0 +1,140 @@
+@media screen and (max-width: 805px) {
+    .section-margin {
+        margin: 12px 24px;
+    }
+
+    .navbar-collapse {
+        background-color: #121212c7;
+        padding: 1.5rem;
+    }
+
+    .nav-link {
+        padding: 100px 0;
+        display: block;
+    }
+
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding: 15px 0;
+    }
+
+    .main{
+        align-items: center;
+    }
+
+    .main-content{
+        padding: 20px;
+    }
+
+    .intro-line {
+    font-size: 20px;
+    }
+
+    .resp-margin-bottom {
+        margin-bottom: 60px;
+    }
+
+    .none {
+        display: none;
+    }
+
+    .display-picture{
+        padding-top: 50px;
+        /* align-items: center; */
+    }
+
+    .display-resp{
+        display: block;
+    }
+
+    .display-picture img {
+        width: 200px;
+        height: 200px;
+        border-radius: 500px;
+        margin: 0;
+        /* align-self: left; */
+    }
+
+    .social-icons a{
+        font-size: 42px;
+    }
+
+    .about{
+        padding-top: 30px;
+    }
+
+    .about-content {
+        flex-direction: column-reverse;
+        /* margin: 0; */
+    }
+
+    .about-image {
+        width: 250px;
+        margin-bottom: 30px;
+    }
+
+    .social-icons-about {
+        margin-top: 5px;
+    }
+
+    .social-icons-about a {
+        color: white;
+        padding: 5px 10px;
+        margin-right: 10px;
+        font-size: 30px;
+    }
+
+    .skills-icon {
+        font-size: 50px;
+    }
+
+    .skills-name {
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    .flex-drs-change {
+        flex-direction: column;
+    }
+
+    .skills-single {
+        margin-bottom: 15px;
+    }
+
+    .skills-single:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Workex */
+    .work-container {
+        max-height: none;
+    }
+
+    .company-list {
+        width: 100%;
+        max-height: 160px;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .company-details {
+        padding: 16px;
+    }
+
+    /* Workex */
+
+    /* Education */
+    .education,
+    .contact-details {
+        margin-bottom: 60px;
+    }
+
+    .certifications {
+        margin-top: 30px;
+    }
+
+    .contact {
+        padding: 48px;
+    }
+
+    /* Education */
+}
