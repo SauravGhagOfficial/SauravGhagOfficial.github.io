@@ -91,7 +91,8 @@
 
         .card {
             background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-            border: 1px solid rgba(255, 255, 255, 0.03);
+            /* border: 1px solid rgba(255, 255, 255, 0.03); */
+            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 18px;
             border-radius: var(--radius);
             cursor: pointer;
@@ -133,7 +134,7 @@
 
         .tag {
             background: var(--glass);
-            padding: 6px 8px;
+            padding: 10px 15px;
             border-radius: 999px;
             font-size: 12px;
             color: var(--muted)
@@ -242,7 +243,7 @@
     <div class="container" role="main">
         <header>
             <div class="brand">
-                <div class="logo" aria-hidden="true">MG</div>
+                <!-- <div class="logo" aria-hidden="true">MG</div> -->
                 <div>
                     <h1>Thoughts Centre</h1>
                     <p class="lead">Here me out... My feelings and excitement towards Science</p>
@@ -278,34 +279,31 @@
             const blogs = [
                 {
                     id: 1,
-                    title: "How Monte Carlo Simulations Transform Business Decisions",
-                    date: "October 31, 2025",
-                    tag: "Analytics",
+                    title: "Turning Circuits Into Clues: Designing a Techfest Experience That Made Engineering Fun",
+                    date: "Event Head @ TechFest",
+                    tag: "Leadership, Management, Technology & Science, Publicity, Digital Marketing",
                     content:
-                        `Monte Carlo simulations are a powerful technique for modelling uncertainty. In business, they allow decision-makers to run many hypothetical scenarios by sampling from probability distributions for uncertain inputs (like demand, conversion rates, or costs).
+                        `I led a team of 10–15 students to design and execute one of the most interactive technology experiences at our college Techfest — an event titled “Naruto and the Treasures of Akatsuki.” While inspired by an anime theme, the heart of the event was pure engineering: we transformed electronic concepts into real-world exploratory challenges that anyone could enjoy, regardless of technical background.
+                        
+                        Participants entered a room filled with stations where puzzles could only be solved by understanding and interacting with real electronic circuits and sensors. From completing logic-gate pathways to activating light-sensitive modules and decoding microcontroller outputs, every challenge turned a textbook concept into a hands-on moment of discovery. Instead of reading about circuits, visitors felt the thrill of using them — watching LEDs blink when a correct connection was made or unlocking clues when electrical pathways were successfully completed.
 
-How to use them in practice:
-1. Define the uncertain inputs and assign appropriate distributions.
-2. Build a deterministic model that maps inputs to outcomes (e.g., profit).
-3. Sample repeatedly and record results — this reveals a distribution of outcomes.
-4. Use percentiles (P10/P50/P90), expected values, and risk measures to guide choices.
+                        Despite being a second-year student, I managed the full lifecycle of the event — concept design, circuit development, storytelling, logistics, team coordination, and live execution. The result was a high-engagement experience that attracted one of the largest crowds at the festival, even surpassing some senior-level and department-led events.
 
-Benefits include clearer risk communication, better contingency planning, and improved pricing or inventory decisions. This method shines when uncertainty is large and asymmetric.`
+                        This project strengthened my science communication skills by teaching me how to transform complex technology into playful, intuitive experiences. Making electronics approachable not only sparked curiosity among non-engineering participants but also reinforced my belief that innovation becomes truly powerful when it is accessible and enjoyable for everyone.`
                 },
                 {
                     id: 2,
-                    title: "Beginner's Guide to Bayesian Inference for Marketing",
-                    date: "September 05, 2025",
-                    tag: "Marketing",
+                    title: "Leading Innovation & Learning: Building a Culture of Technology at RAIT",
+                    date: "Vice Chairman",
+                    tag: "Management, Leadership, Publicity, Social Media Publicity, Technology & Science, Educating, Marketing, Digital Marketing, Sponsorships, Creativity",
                     content:
-                        `Bayesian inference lets marketers update beliefs as new data arrives. Rather than a single point estimate, Bayesian methods produce a distribution over parameters (for example, conversion rate).
+                        `I served as the Vice Chairman of the IETE Committee at RAIT, leading a core team of 21 heads and coordinating over 50 volunteers. My mission was to make technology accessible, engaging, and inspiring for hundreds of students across the department — not just those already passionate about engineering.
 
-Core ideas:
-- Prior: what you believed before seeing current data.
-- Likelihood: how plausible the observed data is for different parameter values.
-- Posterior: updated belief after combining prior + likelihood.
+                        As part of this role, I planned and delivered multiple hands-on workshops that translated advanced engineering topics into practical, beginner-friendly learning experiences. These workshops covered a wide range of subjects including Python programming, MATLAB for engineering problem-solving, signal processing essentials, engineering drawing fundamentals, and antenna design principles. Each session was designed to help students understand why the technology matters, where it is used in the real world, and how they can begin exploring it themselves.
 
-In practice, start with weak priors when unsure, collect A/B test data, and compute posteriors to estimate lift with credible intervals. This approach avoids overconfidence and makes decisions more robust when data is limited.`
+                        Beyond workshops, I also coordinated our department’s annual Techfest — a multi-day celebration of creativity, innovation, and applied engineering. Working closely with teams across sponsorship, events, technical operations, creative design, publicity, membership drives, photography, and social media, I ensured seamless execution from concept to closing ceremony. My role required both technical understanding and the ability to communicate ideas clearly across diverse groups — from explaining event technology to participants, to presenting sponsorship value to industry partners.
+
+                        This experience strengthened my ability to bridge complex engineering concepts with clear communication and engaging learning formats. More than organizing events, my goal was to build curiosity — helping students see technology not just as coursework, but as a powerful toolkit for solving real-world problems and fuelling innovation.`
                 }
             ];
 
