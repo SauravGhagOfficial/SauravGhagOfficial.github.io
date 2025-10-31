@@ -1,1 +1,439 @@
-hello
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>My Blog — Dark Stack</title>
+    <style>
+        :root {
+            --bg: #0b1020;
+            --card: #0f1723;
+            --muted: #9aa4b2;
+            --accent: #58a6ff;
+            --glass: rgba(255, 255, 255, 0.03);
+            --max-width: 820px;
+            --radius: 12px;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            background: linear-gradient(180deg, var(--bg), #071026 80%);
+            color: #e6eef3;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding: 36px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .logo {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--accent), #7c3aed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #fff;
+            font-size: 18px;
+            box-shadow: 0 8px 26px rgba(88, 166, 255, 0.08)
+        }
+
+        h1 {
+            font-size: 20px;
+            margin: 0
+        }
+
+        p.lead {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        /* stacked layout */
+        .grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 6px;
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            padding: 18px;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            outline: none;
+        }
+
+        .card:focus {
+            box-shadow: 0 8px 30px rgba(88, 166, 255, 0.12);
+            border-color: rgba(88, 166, 255, 0.24);
+            transform: translateY(-3px)
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 30px rgba(2, 6, 23, 0.6)
+        }
+
+        .card h3 {
+            margin: 0;
+            font-size: 16px
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px
+        }
+
+        .tag {
+            background: var(--glass);
+            padding: 6px 8px;
+            border-radius: 999px;
+            font-size: 12px;
+            color: var(--muted)
+        }
+
+        /* overlay / modal */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            z-index: 60;
+            backdrop-filter: blur(5px);
+        }
+
+        .overlay.show {
+            display: flex
+        }
+
+        .backdrop {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(2, 6, 23, 0.6), rgba(2, 6, 23, 0.75));
+        }
+
+        .sheet {
+            position: relative;
+            z-index: 65;
+            background: linear-gradient(180deg, #071026, #071723);
+            border-radius: 14px;
+            max-width: 760px;
+            width: 100%;
+            max-height: 88vh;
+            overflow: auto;
+            padding: 26px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            box-shadow: 0 30px 60px rgba(2, 6, 23, 0.7);
+            transform-origin: center;
+            opacity: 0;
+            transform: scale(0.98);
+            transition: opacity .18s ease, transform .18s cubic-bezier(.2, .9, .3, 1);
+        }
+
+        .sheet.show {
+            opacity: 1;
+            transform: scale(1)
+        }
+
+        .sheet h2 {
+            margin: 0 0 10px;
+            font-size: 20px
+        }
+
+        .meta-row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            color: var(--muted);
+            font-size: 13px;
+            margin-bottom: 14px
+        }
+
+        .content {
+            line-height: 1.65;
+            color: #d7e8f7;
+            font-size: 15px
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            color: var(--muted);
+            padding: 8px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .close-btn:hover {
+            border-color: rgba(88, 166, 255, 0.25);
+            color: #fff
+        }
+
+        @media (max-width:520px) {
+            body {
+                padding: 18px
+            }
+
+            .sheet {
+                padding: 18px
+            }
+
+            h1 {
+                font-size: 18px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" role="main">
+        <header>
+            <div class="brand">
+                <div class="logo" aria-hidden="true">MG</div>
+                <div>
+                    <h1>Thoughts Centre</h1>
+                    <p class="lead">Here me out... My feelings and excitement towards Science</p>
+                </div>
+            </div>
+            <!-- <div class="small" style="color:var(--muted);font-size:13px">Vanilla HTML/CSS/JS</div> -->
+        </header>
+        <hr>
+        <br>
+        <main>
+            <section class="grid" id="grid" aria-label="Blog posts">
+                <!-- Cards injected by JS -->
+            </section>
+        </main>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="overlay" aria-hidden="true">
+        <div class="backdrop" id="backdrop" tabindex="-1"></div>
+
+        <article class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title"
+            aria-describedby="sheet-content">
+            <button class="close-btn" id="closeBtn" aria-label="Close (Esc)">✕</button>
+            <h2 id="sheet-title"></h2>
+            <div class="meta-row"><span id="sheet-date"></span><span class="tag" id="sheet-tag"></span></div>
+            <div class="content" id="sheet-content"></div>
+        </article>
+    </div>
+
+    <script>
+        (function () {
+            /* Blog data (two posts). Edit or extend this array to add more posts. */
+            const blogs = [
+                {
+                    id: 1,
+                    title: "How Monte Carlo Simulations Transform Business Decisions",
+                    date: "October 31, 2025",
+                    tag: "Analytics",
+                    content:
+                        `Monte Carlo simulations are a powerful technique for modelling uncertainty. In business, they allow decision-makers to run many hypothetical scenarios by sampling from probability distributions for uncertain inputs (like demand, conversion rates, or costs).
+
+How to use them in practice:
+1. Define the uncertain inputs and assign appropriate distributions.
+2. Build a deterministic model that maps inputs to outcomes (e.g., profit).
+3. Sample repeatedly and record results — this reveals a distribution of outcomes.
+4. Use percentiles (P10/P50/P90), expected values, and risk measures to guide choices.
+
+Benefits include clearer risk communication, better contingency planning, and improved pricing or inventory decisions. This method shines when uncertainty is large and asymmetric.`
+                },
+                {
+                    id: 2,
+                    title: "Beginner's Guide to Bayesian Inference for Marketing",
+                    date: "September 05, 2025",
+                    tag: "Marketing",
+                    content:
+                        `Bayesian inference lets marketers update beliefs as new data arrives. Rather than a single point estimate, Bayesian methods produce a distribution over parameters (for example, conversion rate).
+
+Core ideas:
+- Prior: what you believed before seeing current data.
+- Likelihood: how plausible the observed data is for different parameter values.
+- Posterior: updated belief after combining prior + likelihood.
+
+In practice, start with weak priors when unsure, collect A/B test data, and compute posteriors to estimate lift with credible intervals. This approach avoids overconfidence and makes decisions more robust when data is limited.`
+                }
+            ];
+
+            /* DOM references */
+            const grid = document.getElementById('grid');
+            const overlay = document.getElementById('overlay');
+            const sheet = document.getElementById('sheet');
+            const sheetTitle = document.getElementById('sheet-title');
+            const sheetContent = document.getElementById('sheet-content');
+            const sheetDate = document.getElementById('sheet-date');
+            const sheetTag = document.getElementById('sheet-tag');
+            const closeBtn = document.getElementById('closeBtn');
+            const backdrop = document.getElementById('backdrop');
+
+            /* render stacked cards */
+            function renderCards() {
+                grid.innerHTML = '';
+                blogs.forEach(blog => {
+                    const card = document.createElement('article');
+                    card.className = 'card';
+                    card.tabIndex = 0;
+                    card.setAttribute('role', 'button');
+                    card.setAttribute('aria-pressed', 'false');
+                    card.dataset.id = blog.id;
+
+                    const title = document.createElement('h3');
+                    title.textContent = blog.title;
+
+                    const excerpt = document.createElement('p');
+                    // create an excerpt from first paragraph (first 140 chars)
+                    const firstPara = blog.content.split('\n\n')[0].replace(/\n/g, ' ');
+                    excerpt.textContent = firstPara.length > 140 ? firstPara.slice(0, 140) + '…' : firstPara;
+
+                    const meta = document.createElement('div');
+                    meta.className = 'meta';
+                    const tag = document.createElement('span');
+                    tag.className = 'tag';
+                    tag.textContent = blog.tag;
+                    meta.appendChild(tag);
+
+                    card.appendChild(title);
+                    card.appendChild(excerpt);
+                    card.appendChild(meta);
+
+                    card.addEventListener('click', () => openBlog(blog.id));
+                    card.addEventListener('keydown', (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            openBlog(blog.id);
+                        }
+                    });
+
+                    grid.appendChild(card);
+                });
+            }
+
+            /* escape HTML to avoid injection */
+            function escapeHtml(str) {
+                return String(str).replace(/[&<>"']/g, function (m) {
+                    return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]);
+                });
+            }
+
+            /* open overlay and populate */
+            let previousActive = null;
+            function openBlog(id) {
+                const blog = blogs.find(b => b.id === +id);
+                if (!blog) return;
+
+                sheetTitle.textContent = blog.title;
+                sheetDate.textContent = blog.date;
+                sheetTag.textContent = blog.tag;
+
+                // convert paragraphs separated by blank lines into <p> blocks
+                const paragraphs = blog.content.split('\n\n').map(p => escapeHtml(p).replace(/\n/g, '<br>'));
+                sheetContent.innerHTML = paragraphs.map(p => `<p>${p}</p>`).join('');
+
+                overlay.classList.add('show');
+                // give tiny timeout to allow CSS transition
+                requestAnimationFrame(() => sheet.classList.add('show'));
+                overlay.setAttribute('aria-hidden', 'false');
+
+                // focus management
+                previousActive = document.activeElement;
+                closeBtn.focus();
+                document.addEventListener('focus', trapFocus, true);
+
+                // prevent background scroll
+                document.documentElement.style.overflow = 'hidden';
+            }
+
+            function closeBlog() {
+                sheet.classList.remove('show');
+                overlay.classList.remove('show');
+                overlay.setAttribute('aria-hidden', 'true');
+                document.removeEventListener('focus', trapFocus, true);
+                if (previousActive && typeof previousActive.focus === 'function') previousActive.focus();
+                document.documentElement.style.overflow = '';
+            }
+
+            /* clicking backdrop closes */
+            backdrop.addEventListener('click', closeBlog);
+            closeBtn.addEventListener('click', closeBlog);
+
+            /* keyboard: Escape closes */
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && overlay.classList.contains('show')) {
+                    closeBlog();
+                }
+            });
+
+            /* very small focus trap */
+            function trapFocus(e) {
+                if (!overlay.classList.contains('show')) return;
+                if (!overlay.contains(e.target)) {
+                    e.stopPropagation();
+                    closeBtn.focus();
+                }
+            }
+
+            /* init */
+            renderCards();
+
+            // Expose functions for debugging (optional)
+            window.openBlog = openBlog;
+            window.closeBlog = closeBlog;
+        })();
+    </script>
+</body>
+
+</html>
