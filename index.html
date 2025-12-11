@@ -220,6 +220,8 @@
         <br>
         <div class="work-container flex-drs-change">
             <div class="company-list" id="companyList">
+                <button onclick="showDetails('ltce')" class="active">Lokmanya Tilak College of Engineering</button>
+                <button onclick="showDetails('spd')" class="active">Smart People Developers</button>
                 <button onclick="showDetails('samsung')" class="active">Samsung India Electronics Pvt. Ltd.</button>
                 <button onclick="showDetails('freelance')">Freelancing Web Development & Graphic Designing</button>
                 <button onclick="showDetails('rishiraj')">Rishiraj Media Internship</button>
@@ -228,19 +230,19 @@
             </div>
 
             <div class="company-details" id="companyDetails">
-                <img class="company-logo" src="/img/samsung-logo.png" alt="" width="200">
-                <h3>Samsung India Electronics Pvt. Ltd.</h3>
-                <h6>June 2022 - September 2024</h6>
+                <img class="company-logo" src="/img/ltce.png" alt="" width="200">
+                <br>
+                <h3>Lokmanya Tilak College of Engineering</h3>
+                <h6>December 2025 - Currently Working</h6>
                 <hr>
                 <ul>
-                    <li>Analyzed large telecom datasets using Python and SQL to deliver insights that drove growth, improved operations, and optimized marketing and sales strategies.</li>
-                    <li>Developed and automated interactive BI dashboards and reports using Tableau/Power BI and Excel to track KPIs like ARPU, churn rate, customer acquisition, retention, and campaign ROI for data-driven decisions.</li>
-                    <li>Created customer segmentation and churn prediction models leveraging Python’s data science libraries, reducing churn by 10% and boosting user engagement through targeted campaigns.</li>
-                    <li>Collaborated cross-functionally with marketing, product, operations, and technical teams, integrating diverse data sources and accelerating insights delivery with advanced analytics tools.</li>
-                    <li>Supported pricing and marketing optimization during the 5G rollout phase, contributing to a 12% revenue increase through data-driven strategies.</li>
-                    <li>Improved marketing campaign ROI by 20% through multi-channel performance analysis and budget optimization using BI tools and Excel modeling.</li>
-                    <li>Delivered ad hoc analyses and presented actionable insights to leadership, facilitating strategic initiatives with clear visualizations and Python-based data exploration.– Analyzed large telecom datasets using Python and SQL to deliver insights that drove growth, improved operations, and optimized marketing and sales strategies. – Developed and automated interactive BI dashboards and reports using Tableau/Power BI and Excel to track KPIs like ARPU, churn rate, customer acquisition, retention, and campaign ROI for data-driven decisions. – Created customer segmentation and churn prediction models leveraging Python’s data science libraries, reducing churn by 10% and boosting user engagement through targeted campaigns. – Collaborated cross-functionally with marketing, product, operations, and technical teams, integrating diverse data sources and accelerating insights delivery with advanced analytics tools. – Supported pricing and marketing optimization during the 5G rollout phase, contributing to a 12% revenue increase through data-driven strategies. – Improved marketing campaign ROI by 20% through multi-channel performance analysis and budget optimization using BI tools and Excel modeling. – Delivered ad hoc analyses and presented actionable insights to leadership, facilitating strategic initiatives with clear visualizations and Python-based data exploration.</li>
-
+                    <li>Teach Python Programming and conduct practical sessions for First Year Engineering students.</li>
+                    <li>Lead Data Science Lab for Final Year students, covering EDA, preprocessing, ML basics, and project guidance.</li>
+                    <li>Conduct Cloud Computing Lab for Third Year students, including virtualization, deployment models, and containerization.</li>
+                    <li>Handle Cryptography & System Security Lab, teaching encryption methods, secure coding, and security tools.</li>
+                    <li>Prepare lab manuals, assignments, and evaluation criteria aligned with outcome-based education.</li>
+                    <li>Evaluate practical exams, maintain student performance records, and support academic coordination.</li>
+                    <li>Mentor students in academic and final-year projects with technical guidance.</li>
                 </ul>
             </div>
         </div>
@@ -506,6 +508,36 @@
     </script>
     <script>
         const details = {
+            ltce: `
+            <img class="company-logo" src="/img/ltce.png" alt="" width="200">
+            <br>
+            <h3>Lokmanya Tilak College of Engineering</h3>
+            <h6>December 2025 - Currently Working</h6>
+            <hr>
+            <ul>
+                <li>Teach Python Programming and conduct practical sessions for First Year Engineering students.</li>
+                <li>Lead Data Science Lab for Final Year students, covering EDA, preprocessing, ML basics, and project guidance.</li>
+                <li>Conduct Cloud Computing Lab for Third Year students, including virtualization, deployment models, and containerization.</li>
+                <li>Handle Cryptography & System Security Lab, teaching encryption methods, secure coding, and security tools.</li>
+                <li>Prepare lab manuals, assignments, and evaluation criteria aligned with outcome-based education.</li>
+                <li>Evaluate practical exams, maintain student performance records, and support academic coordination.</li>
+                <li>Mentor students in academic and final-year projects with technical guidance.</li>
+            </ul>
+        `,
+            spd: `
+            <img class="company-logo" src="/img/spd.jpeg" alt="" width="200">
+            <br>
+            <h3>Smart People Developers</h3>
+            <h6>September 2024 - January 2025</h6>
+            <hr>
+            <ul>
+                <li>Analyze marketing and sales data to optimize campaigns, enhancing customer acquisition and retention.</li>
+                <li>Collaborate with stakeholders to deliver tailored insights and recommend data-driven strategies.</li>
+                <li>Master storytelling to present complex data effectively to diverse audiences.</li>
+                <li>Deliver forecasting models to tackle inconsistent data and improve campaign performance.</li>
+                <li>Engage stakeholders to align analytical outputs with business goals.</li>
+            </ul>
+        `,
             samsung: `
             <img class="company-logo" src="/img/samsung-logo.png" alt="" width="200">
             <br>
